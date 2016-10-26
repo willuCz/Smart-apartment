@@ -1,0 +1,214 @@
+body{
+    padding-bottom: 120px;
+    min-width: 768px;
+    width: 100%;
+    position: absolute;
+    min-height: 100%;
+}
+header {
+    height: 99px;
+    width: 100%;
+}
+
+header #header-right, #header-left {
+    position: absolute;
+    height: 80px;
+    width: 32%;
+    box-shadow: 0 0 40px 2px rgba(0, 0, 0, 0.349019607843137) inset;
+    z-index: -10;
+}
+
+header #header-right {
+    right: 0;
+}
+
+header #header-left {
+    left: 0;
+}
+
+header #header {
+    position: absolute;
+    margin: 0;
+    width: 36%;
+    left: 32%;
+    height: inherit;
+    background-color: rgba(63, 115, 211, 1);
+    text-align: center;
+}
+
+header #header h1 {
+    margin: 0;
+    line-height: 99px;
+    font-family: '微软雅黑 Bold', '微软雅黑 Regular', '微软雅黑', serif;
+    color: white;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+header #header-right-user {
+    position: absolute;
+    width: 55%;
+    left: 0;
+    text-align: center;
+    height: inherit;
+}
+
+header #header-right-user a {
+    line-height: 99px;
+    font-family: '微软雅黑 Bold', '微软雅黑 Regular', '微软雅黑', serif;
+}
+
+header #header-username {
+    position: relative;
+    right: 5px;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+header #header-exit {
+    position: absolute;
+    right: 10px;
+    color: black;
+}
+
+header #header-right-time {
+    position: absolute;
+    width: 45%;
+    right: 0;
+    height: 70px;
+    top: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+#header-left-img-down, #header-right-img-down {
+    height: 19px;
+    position: absolute;
+    top: 80px;
+}
+
+#header-left-img-down {
+    left: -19px;;
+}
+
+#header-right-img-down {
+    right: -19px;;
+}
+
+#header-left-img, #header-right-img {
+    height: 99px;
+    position: absolute;
+    top: 0;
+}
+
+#header-left-img {
+    left: -58.41px;
+}
+
+#header-right-img {
+    right: -58.41px;
+}
+
+header #weekOrder {
+    font-weight: 400;
+    font-size: 18px;
+    color: #0033CC;
+    margin-bottom: 2px;
+}
+
+header .date {
+    font-size: 12px;
+    color: #666666;
+}
+
+#content {
+    width: 86%;
+    position: absolute;
+    left: 7%;
+    padding: 3%;
+    min-height: 550px;
+    z-index: -10;
+}
+
+#content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#content ul li, footer li {
+    display: inline;
+}
+
+#content ul li a img {
+    margin: 3.2%;
+    width: 9%;
+}
+#header-company{
+    width: 80%;
+    position: absolute;
+    left: 10%;
+    height:80%;
+    top:10%;
+    overflow: hidden;
+}
+#logo{
+    position: absolute;
+    top: 20%;
+    height:60%;
+    left:0;
+}
+#company{
+    position: absolute;
+    height: 52%;
+    left:20%;
+    top:24%;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    min-width: inherit;
+    height: 120px;
+    background-color: white;
+}
+
+footer #floor {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: -10;
+}
+
+footer #floor img {
+    height: 40px;
+    width: 100%;
+}
+
+footer ul {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    bottom: 20px;
+    width: 90%;
+    left: 10%;
+    right: 10%;
+}
+
+footer ul li a img {
+    margin: 0.75% 0.75% 0;
+    width: 6.5%;
+    vertical-align: bottom;
+    transition: all 0.5s ease;
+}
+.imgBig{
+    width: 12%;
+    margin: 0.80% 0.80% 0;
+}
+.imgBigS{
+    width: 7.5%;
+    margin: 0.80% 0.80% 0;
+}
