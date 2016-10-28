@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.willu.dao.Tb_statyRecordsMapper" >
+  <resultMap id="BaseResultMap" type="com.willu.model.Tb_statyRecords" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="StudentCode" property="studentcode" jdbcType="VARCHAR" />
+    <result column="BuildingName" property="buildingname" jdbcType="VARCHAR" />
+    <result column="RoomNum" property="roomnum" jdbcType="INTEGER" />
+    <result column="BedNum" property="bednum" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, StudentCode, BuildingName, RoomNum, BedNum
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_statyRecords
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_statyRecords
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.willu.model.Tb_statyRecords" >
+    insert into tb_statyRecords (Id, StudentCode, BuildingName, 
+      RoomNum, BedNum)
+    values (#{id,jdbcType=INTEGER}, #{studentcode,jdbcType=VARCHAR}, #{buildingname,jdbcType=VARCHAR}, 
+      #{roomnum,jdbcType=INTEGER}, #{bednum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.willu.model.Tb_statyRecords" >
+    insert into tb_statyRecords
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="studentcode != null" >
+        StudentCode,
+      </if>
+      <if test="buildingname != null" >
+        BuildingName,
+      </if>
+      <if test="roomnum != null" >
+        RoomNum,
+      </if>
+      <if test="bednum != null" >
+        BedNum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="studentcode != null" >
+        #{studentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingname != null" >
+        #{buildingname,jdbcType=VARCHAR},
+      </if>
+      <if test="roomnum != null" >
+        #{roomnum,jdbcType=INTEGER},
+      </if>
+      <if test="bednum != null" >
+        #{bednum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.willu.model.Tb_statyRecords" >
+    update tb_statyRecords
+    <set >
+      <if test="studentcode != null" >
+        StudentCode = #{studentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingname != null" >
+        BuildingName = #{buildingname,jdbcType=VARCHAR},
+      </if>
+      <if test="roomnum != null" >
+        RoomNum = #{roomnum,jdbcType=INTEGER},
+      </if>
+      <if test="bednum != null" >
+        BedNum = #{bednum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.willu.model.Tb_statyRecords" >
+    update tb_statyRecords
+    set StudentCode = #{studentcode,jdbcType=VARCHAR},
+      BuildingName = #{buildingname,jdbcType=VARCHAR},
+      RoomNum = #{roomnum,jdbcType=INTEGER},
+      BedNum = #{bednum,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

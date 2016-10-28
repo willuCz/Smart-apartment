@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.willu.dao.Tb_roomsMapper" >
+  <resultMap id="BaseResultMap" type="com.willu.model.Tb_rooms" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="BuildingId" property="buildingid" jdbcType="INTEGER" />
+    <result column="FloorNumber" property="floornumber" jdbcType="INTEGER" />
+    <result column="RoomNumber" property="roomnumber" jdbcType="INTEGER" />
+    <result column="Nature" property="nature" jdbcType="VARCHAR" />
+    <result column="Type" property="type" jdbcType="VARCHAR" />
+    <result column="PersonNumber" property="personnumber" jdbcType="INTEGER" />
+    <result column="Face" property="face" jdbcType="VARCHAR" />
+    <result column="Prices" property="prices" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, BuildingId, FloorNumber, RoomNumber, Nature, Type, PersonNumber, Face, Prices
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_rooms
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_rooms
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.willu.model.Tb_rooms" >
+    insert into tb_rooms (Id, BuildingId, FloorNumber, 
+      RoomNumber, Nature, Type, 
+      PersonNumber, Face, Prices
+      )
+    values (#{id,jdbcType=INTEGER}, #{buildingid,jdbcType=INTEGER}, #{floornumber,jdbcType=INTEGER}, 
+      #{roomnumber,jdbcType=INTEGER}, #{nature,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{personnumber,jdbcType=INTEGER}, #{face,jdbcType=VARCHAR}, #{prices,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.willu.model.Tb_rooms" >
+    insert into tb_rooms
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="buildingid != null" >
+        BuildingId,
+      </if>
+      <if test="floornumber != null" >
+        FloorNumber,
+      </if>
+      <if test="roomnumber != null" >
+        RoomNumber,
+      </if>
+      <if test="nature != null" >
+        Nature,
+      </if>
+      <if test="type != null" >
+        Type,
+      </if>
+      <if test="personnumber != null" >
+        PersonNumber,
+      </if>
+      <if test="face != null" >
+        Face,
+      </if>
+      <if test="prices != null" >
+        Prices,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="buildingid != null" >
+        #{buildingid,jdbcType=INTEGER},
+      </if>
+      <if test="floornumber != null" >
+        #{floornumber,jdbcType=INTEGER},
+      </if>
+      <if test="roomnumber != null" >
+        #{roomnumber,jdbcType=INTEGER},
+      </if>
+      <if test="nature != null" >
+        #{nature,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="personnumber != null" >
+        #{personnumber,jdbcType=INTEGER},
+      </if>
+      <if test="face != null" >
+        #{face,jdbcType=VARCHAR},
+      </if>
+      <if test="prices != null" >
+        #{prices,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.willu.model.Tb_rooms" >
+    update tb_rooms
+    <set >
+      <if test="buildingid != null" >
+        BuildingId = #{buildingid,jdbcType=INTEGER},
+      </if>
+      <if test="floornumber != null" >
+        FloorNumber = #{floornumber,jdbcType=INTEGER},
+      </if>
+      <if test="roomnumber != null" >
+        RoomNumber = #{roomnumber,jdbcType=INTEGER},
+      </if>
+      <if test="nature != null" >
+        Nature = #{nature,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="personnumber != null" >
+        PersonNumber = #{personnumber,jdbcType=INTEGER},
+      </if>
+      <if test="face != null" >
+        Face = #{face,jdbcType=VARCHAR},
+      </if>
+      <if test="prices != null" >
+        Prices = #{prices,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.willu.model.Tb_rooms" >
+    update tb_rooms
+    set BuildingId = #{buildingid,jdbcType=INTEGER},
+      FloorNumber = #{floornumber,jdbcType=INTEGER},
+      RoomNumber = #{roomnumber,jdbcType=INTEGER},
+      Nature = #{nature,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      PersonNumber = #{personnumber,jdbcType=INTEGER},
+      Face = #{face,jdbcType=VARCHAR},
+      Prices = #{prices,jdbcType=DECIMAL}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

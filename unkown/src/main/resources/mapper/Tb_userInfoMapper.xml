@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.willu.dao.Tb_userInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.willu.model.Tb_userInfo" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="CampusName" property="campusname" jdbcType="VARCHAR" />
+    <result column="StudentCode" property="studentcode" jdbcType="VARCHAR" />
+    <result column="StudentName" property="studentname" jdbcType="VARCHAR" />
+    <result column="Sex" property="sex" jdbcType="VARCHAR" />
+    <result column="Faculty" property="faculty" jdbcType="VARCHAR" />
+    <result column="Profession" property="profession" jdbcType="VARCHAR" />
+    <result column="AdminsionTime" property="adminsiontime" jdbcType="DATE" />
+    <result column="Xuezhi" property="xuezhi" jdbcType="INTEGER" />
+    <result column="Education" property="education" jdbcType="VARCHAR" />
+    <result column="Identity" property="identity" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, CampusName, StudentCode, StudentName, Sex, Faculty, Profession, AdminsionTime, 
+    Xuezhi, Education, Identity
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_userInfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_userInfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.willu.model.Tb_userInfo" >
+    insert into tb_userInfo (Id, CampusName, StudentCode, 
+      StudentName, Sex, Faculty, 
+      Profession, AdminsionTime, Xuezhi, 
+      Education, Identity)
+    values (#{id,jdbcType=INTEGER}, #{campusname,jdbcType=VARCHAR}, #{studentcode,jdbcType=VARCHAR}, 
+      #{studentname,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{faculty,jdbcType=VARCHAR}, 
+      #{profession,jdbcType=VARCHAR}, #{adminsiontime,jdbcType=DATE}, #{xuezhi,jdbcType=INTEGER}, 
+      #{education,jdbcType=VARCHAR}, #{identity,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.willu.model.Tb_userInfo" >
+    insert into tb_userInfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="campusname != null" >
+        CampusName,
+      </if>
+      <if test="studentcode != null" >
+        StudentCode,
+      </if>
+      <if test="studentname != null" >
+        StudentName,
+      </if>
+      <if test="sex != null" >
+        Sex,
+      </if>
+      <if test="faculty != null" >
+        Faculty,
+      </if>
+      <if test="profession != null" >
+        Profession,
+      </if>
+      <if test="adminsiontime != null" >
+        AdminsionTime,
+      </if>
+      <if test="xuezhi != null" >
+        Xuezhi,
+      </if>
+      <if test="education != null" >
+        Education,
+      </if>
+      <if test="identity != null" >
+        Identity,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="campusname != null" >
+        #{campusname,jdbcType=VARCHAR},
+      </if>
+      <if test="studentcode != null" >
+        #{studentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="studentname != null" >
+        #{studentname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="faculty != null" >
+        #{faculty,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null" >
+        #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="adminsiontime != null" >
+        #{adminsiontime,jdbcType=DATE},
+      </if>
+      <if test="xuezhi != null" >
+        #{xuezhi,jdbcType=INTEGER},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="identity != null" >
+        #{identity,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.willu.model.Tb_userInfo" >
+    update tb_userInfo
+    <set >
+      <if test="campusname != null" >
+        CampusName = #{campusname,jdbcType=VARCHAR},
+      </if>
+      <if test="studentcode != null" >
+        StudentCode = #{studentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="studentname != null" >
+        StudentName = #{studentname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        Sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="faculty != null" >
+        Faculty = #{faculty,jdbcType=VARCHAR},
+      </if>
+      <if test="profession != null" >
+        Profession = #{profession,jdbcType=VARCHAR},
+      </if>
+      <if test="adminsiontime != null" >
+        AdminsionTime = #{adminsiontime,jdbcType=DATE},
+      </if>
+      <if test="xuezhi != null" >
+        Xuezhi = #{xuezhi,jdbcType=INTEGER},
+      </if>
+      <if test="education != null" >
+        Education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="identity != null" >
+        Identity = #{identity,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.willu.model.Tb_userInfo" >
+    update tb_userInfo
+    set CampusName = #{campusname,jdbcType=VARCHAR},
+      StudentCode = #{studentcode,jdbcType=VARCHAR},
+      StudentName = #{studentname,jdbcType=VARCHAR},
+      Sex = #{sex,jdbcType=VARCHAR},
+      Faculty = #{faculty,jdbcType=VARCHAR},
+      Profession = #{profession,jdbcType=VARCHAR},
+      AdminsionTime = #{adminsiontime,jdbcType=DATE},
+      Xuezhi = #{xuezhi,jdbcType=INTEGER},
+      Education = #{education,jdbcType=VARCHAR},
+      Identity = #{identity,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
