@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.willu.dao.Tb_bedMapper" >
+  <resultMap id="BaseResultMap" type="com.willu.model.Tb_bed" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="RoomId" property="roomid" jdbcType="INTEGER" />
+    <result column="Number" property="number" jdbcType="INTEGER" />
+    <result column="Position" property="position" jdbcType="VARCHAR" />
+    <result column="State" property="state" jdbcType="INTEGER" />
+    <result column="Type" property="type" jdbcType="VARCHAR" />
+    <result column="Remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, RoomId, Number, Position, State, Type, Remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_bed
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_bed
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.willu.model.Tb_bed" >
+    insert into tb_bed (Id, RoomId, Number, 
+      Position, State, Type, 
+      Remark)
+    values (#{id,jdbcType=INTEGER}, #{roomid,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, 
+      #{position,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.willu.model.Tb_bed" >
+    insert into tb_bed
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="roomid != null" >
+        RoomId,
+      </if>
+      <if test="number != null" >
+        Number,
+      </if>
+      <if test="position != null" >
+        Position,
+      </if>
+      <if test="state != null" >
+        State,
+      </if>
+      <if test="type != null" >
+        Type,
+      </if>
+      <if test="remark != null" >
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roomid != null" >
+        #{roomid,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.willu.model.Tb_bed" >
+    update tb_bed
+    <set >
+      <if test="roomid != null" >
+        RoomId = #{roomid,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        Number = #{number,jdbcType=INTEGER},
+      </if>
+      <if test="position != null" >
+        Position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        State = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.willu.model.Tb_bed" >
+    update tb_bed
+    set RoomId = #{roomid,jdbcType=INTEGER},
+      Number = #{number,jdbcType=INTEGER},
+      Position = #{position,jdbcType=VARCHAR},
+      State = #{state,jdbcType=INTEGER},
+      Type = #{type,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

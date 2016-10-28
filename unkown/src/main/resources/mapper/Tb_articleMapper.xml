@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.willu.dao.Tb_articleMapper" >
+  <resultMap id="BaseResultMap" type="com.willu.model.Tb_article" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="RoomId" property="roomid" jdbcType="INTEGER" />
+    <result column="Name" property="name" jdbcType="VARCHAR" />
+    <result column="Category" property="category" jdbcType="VARCHAR" />
+    <result column="Specification" property="specification" jdbcType="VARCHAR" />
+    <result column="Metrology" property="metrology" jdbcType="VARCHAR" />
+    <result column="Brand" property="brand" jdbcType="VARCHAR" />
+    <result column="Amount" property="amount" jdbcType="INTEGER" />
+    <result column="Price" property="price" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, RoomId, Name, Category, Specification, Metrology, Brand, Amount, Price
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_article
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_article
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.willu.model.Tb_article" >
+    insert into tb_article (Id, RoomId, Name, 
+      Category, Specification, Metrology, 
+      Brand, Amount, Price
+      )
+    values (#{id,jdbcType=INTEGER}, #{roomid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{category,jdbcType=VARCHAR}, #{specification,jdbcType=VARCHAR}, #{metrology,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{amount,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.willu.model.Tb_article" >
+    insert into tb_article
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="roomid != null" >
+        RoomId,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+      <if test="category != null" >
+        Category,
+      </if>
+      <if test="specification != null" >
+        Specification,
+      </if>
+      <if test="metrology != null" >
+        Metrology,
+      </if>
+      <if test="brand != null" >
+        Brand,
+      </if>
+      <if test="amount != null" >
+        Amount,
+      </if>
+      <if test="price != null" >
+        Price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roomid != null" >
+        #{roomid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="specification != null" >
+        #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="metrology != null" >
+        #{metrology,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.willu.model.Tb_article" >
+    update tb_article
+    <set >
+      <if test="roomid != null" >
+        RoomId = #{roomid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        Category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="specification != null" >
+        Specification = #{specification,jdbcType=VARCHAR},
+      </if>
+      <if test="metrology != null" >
+        Metrology = #{metrology,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        Brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null" >
+        Amount = #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        Price = #{price,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.willu.model.Tb_article" >
+    update tb_article
+    set RoomId = #{roomid,jdbcType=INTEGER},
+      Name = #{name,jdbcType=VARCHAR},
+      Category = #{category,jdbcType=VARCHAR},
+      Specification = #{specification,jdbcType=VARCHAR},
+      Metrology = #{metrology,jdbcType=VARCHAR},
+      Brand = #{brand,jdbcType=VARCHAR},
+      Amount = #{amount,jdbcType=INTEGER},
+      Price = #{price,jdbcType=DECIMAL}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
