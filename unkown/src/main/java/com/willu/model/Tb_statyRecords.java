@@ -1,5 +1,8 @@
 package com.willu.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Tb_statyRecords {
     private Integer id;
 

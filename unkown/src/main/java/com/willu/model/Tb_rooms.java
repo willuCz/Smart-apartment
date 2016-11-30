@@ -2,6 +2,9 @@ package com.willu.model;
 
 import java.math.BigDecimal;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Tb_rooms {
     private Integer id;
 

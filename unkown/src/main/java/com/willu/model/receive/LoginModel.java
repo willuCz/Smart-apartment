@@ -1,7 +1,7 @@
 package com.willu.model.receive;
 
 
-import javax.ws.rs.FormParam;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -12,17 +12,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class LoginModel {
 	
-	@FormParam("username")
-	public String username;
-	@FormParam("password")
+	public String usercode;
 	public String password;
 	
-	public String getUserNameInfo(){
-		return username;
+	public String getUserCodeInfo(){
+		return usercode;
 	}
 	
-	public void setUserNameInfo(String username){
-		this.username=username;
+	public void setUserNameInfo(String usercode){
+		this.usercode=usercode;
 	}
 	
 	public String getPasswordInfo(){

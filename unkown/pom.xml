@@ -13,7 +13,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
-  
+
   <!--JAXB API-->
 	<dependency>
 		<groupId>javax.xml.ws</groupId>
@@ -86,6 +86,8 @@
             </exclusion>
         </exclusions>
     </dependency>
+    
+
     
     <!-- 1)MyBatis依赖 2)dbcp依赖(后面会配置连接池) 3)MySql数据库连接jar -->
   	<dependency>

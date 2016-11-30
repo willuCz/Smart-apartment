@@ -2,6 +2,9 @@ package com.willu.model;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Tb_userInfo {
     private Integer id;
 

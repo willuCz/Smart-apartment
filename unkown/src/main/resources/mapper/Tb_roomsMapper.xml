@@ -21,6 +21,26 @@
     from tb_rooms
     where Id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByRoomNumber" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_rooms
+    where  BuildingId = #{buildingid,jdbcType=INTEGER}
+    and FloorNumber = #{floornumber,jdbcType=INTEGER} and RoomNumber = #{roomnumber,jdbcType=INTEGER}
+  </select>
+  <select id="selectByFloorNumber" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_rooms
+    where  BuildingId = #{buildingid,jdbcType=INTEGER}
+    and FloorNumber = #{floornumber,jdbcType=INTEGER}
+  </select>
+  <select id="selectByBuildingName" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_rooms
+    where BuildingId = #{buildingid,jdbcType=INTEGER}
+  </select>  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tb_rooms
     where Id = #{id,jdbcType=INTEGER}

@@ -16,9 +16,24 @@
     from tb_campus
     where Id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_campus
+  </select>
+    <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_campus
+    where Name = #{name,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tb_campus
     where Id = #{id,jdbcType=INTEGER}
+  </delete>
+    <delete id="deleteByName" parameterType="java.lang.String" >
+    delete from tb_campus
+    where Name = #{name,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.willu.model.Tb_campus" >
     insert into tb_campus (Id, Code, Name, 

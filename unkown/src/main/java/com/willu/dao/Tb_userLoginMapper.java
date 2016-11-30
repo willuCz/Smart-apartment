@@ -10,8 +10,11 @@ public interface Tb_userLoginMapper {
     int insertSelective(Tb_userLogin record);
 
     Tb_userLogin selectByPrimaryKey(Integer id);
+    
 
     int updateByPrimaryKeySelective(Tb_userLogin record);
 
     int updateByPrimaryKey(Tb_userLogin record);
+
+	Tb_userLogin selectByUserCode(String userCodeInfo);
 }
